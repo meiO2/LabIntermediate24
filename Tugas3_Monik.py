@@ -29,8 +29,7 @@ def hasil(userguess, correctguess):
                 correctguess.insert(4, userguess)
                 return correctguess
         elif userguess != Secret_Word[x]:
-            continue
-    return 
+            continue 
 
 def cek(userguess, correctguess, num):
     if num >= 1:
@@ -53,7 +52,11 @@ def Main (Secret_Word):
         print("------------------------------")
         if userguess.isalpha():
             if len(userguess)==1:
-                if userguess == Secret_Word[num].lower():
+                if userguess in correctguess:
+                        print ("huruf sudah ditebak, tebak lagi")
+                        print("------------------------------")
+                        continue
+                if userguess in Secret_Word.lower():
                     hasil(userguess, correctguess)
                     num = num + 1
                     print("tebakan benar:")
@@ -62,7 +65,7 @@ def Main (Secret_Word):
                     print ("")
                     print("------------------------------")
                     Health -= 1
-                elif userguess == Secret_Word[num].upper():
+                elif userguess in Secret_Word.upper():
                     hasil(userguess, correctguess)
                     num = num + 1
                     for i in correctguess:
@@ -71,10 +74,7 @@ def Main (Secret_Word):
                     print("------------------------------")
                     Health -= 1
                 else:
-                    if cek(userguess, correctguess, num) is True:
-                        print ("huruf sudah ditebak, tebak lagi")
-                        print("------------------------------")
-                    elif cek(userguess, correctguess, num) is False:
+                    if cek(userguess, correctguess, num) is False:
                         Health -= 1
                         print("Salah, tebak lagi")
                         print("------------------------------")
