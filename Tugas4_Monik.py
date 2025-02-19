@@ -45,10 +45,8 @@ def cek(userguess, correctguess, num):
         return False
 
 def Main (Secret_Word):
-    print (len(Secret_Word))
     global score
     word = random.choice(Secret_Word)
-    print (word)
     print ("Score:", score)
     num = 0
     correctguess= ["_"," ","_"," ","_"]
@@ -71,7 +69,6 @@ def Main (Secret_Word):
                         print (i, end="")
                     print ("")
                     print("------------------------------")
-                    Health -= 1
                 elif userguess in word.upper():
                     hasil(userguess, correctguess, word)
                     num = num + 1
@@ -79,7 +76,6 @@ def Main (Secret_Word):
                         print (i, end="")
                     print("")
                     print("------------------------------")
-                    Health -= 1
                 else:
                     if cek(userguess, correctguess, num) is False:
                         Health -= 1
